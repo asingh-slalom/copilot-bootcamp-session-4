@@ -53,24 +53,28 @@ header {
 
 main {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  main {
-    grid-template-columns: 2fr 1fr;
-  }
+  flex-direction: column;
+  gap: 20px;
 }
 
 section {
   background-color: white;
-  padding: 20px;
-  border-radius: 5px;
+  padding: 24px;
+  border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
+}
+
+#capabilities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 480px) {
+  #capabilities-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 section h3 {
@@ -173,49 +177,55 @@ section h3 {
   border-radius: 6px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+/* Inline registration form on each card */
+.register-inline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #e3f2fd;
+  flex-wrap: wrap;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 10px;
+.register-inline .inline-email {
+  flex: 1;
+  min-width: 180px;
+  padding: 8px 12px;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-button[type="submit"] {
+.register-inline .inline-email:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.15);
+}
+
+.register-btn {
   background: linear-gradient(135deg, #003d7a, #0066cc);
   color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  white-space: nowrap;
 }
 
-button[type="submit"]:hover {
+.register-btn:hover {
   background: linear-gradient(135deg, #0066cc, #1976d2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 61, 122, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 61, 122, 0.3);
 }
 
 .message {
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 15px;
 }
 
 .success {
