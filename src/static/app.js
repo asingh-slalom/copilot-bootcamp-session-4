@@ -87,6 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // If this is an email input outside of a form, manually trigger HTML5 validation
+    if (emailInput.type === "email" && !emailInput.checkValidity()) {
+      if (typeof emailInput.reportValidity === "function") {
+        emailInput.reportValidity();
+      }
+      emailInput.focus();
+      return;
+    }
     try {
       const response = await fetch(
         `/capabilities/${encodeURIComponent(capability)}/register?email=${encodeURIComponent(email)}`,
