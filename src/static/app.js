@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${consultantsHTML}
           </div>
           <div class="register-inline">
-            <input type="email" class="inline-email" placeholder="your-email@slalom.com" />
+            <input type="email" class="inline-email" placeholder="your-email@slalom.com" aria-label="Enter your email to register your expertise" />
             <button class="register-btn" data-capability="${name}">Register Expertise</button>
           </div>
         `;
