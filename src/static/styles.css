@@ -71,6 +71,9 @@ section {
   gap: 20px;
 }
 
+#capabilities-list .capability-card {
+  margin-bottom: 0;
+}
 @media (max-width: 480px) {
   #capabilities-list {
     grid-template-columns: 1fr;
