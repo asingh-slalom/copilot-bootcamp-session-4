@@ -2,13 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const capabilitiesList = document.getElementById("capabilities-list");
   const messageDiv = document.getElementById("message");
 
+  let messageTimeoutId;
+
   function showMessage(text, type) {
     messageDiv.textContent = text;
-    // Ensure base "message" class is present and toggle only state + "hidden"
-    messageDiv.classList.remove("success", "error", "hidden");
-    messageDiv.classList.add("message", type);
-    setTimeout(() => {
+    messageDiv.className = type;
+    messageDiv.classList.remove("hidden");
+    if (messageTimeoutId) {
+      clearTimeout(messageTimeoutId);
+    }
+    messageTimeoutId = setTimeout(() => {
       messageDiv.classList.add("hidden");
+      messageTimeoutId = undefined;
     }, 5000);
   }
 
