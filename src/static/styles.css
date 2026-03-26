@@ -225,6 +225,11 @@ section h3 {
   box-shadow: 0 3px 6px rgba(0, 61, 122, 0.3);
 }
 
+.register-btn:focus,
+.register-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.15);
+}
 .message {
   padding: 12px 16px;
   border-radius: 6px;
