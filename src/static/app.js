@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showMessage(text, type) {
     messageDiv.textContent = text;
-    messageDiv.className = type;
-    messageDiv.classList.remove("hidden");
+    // Ensure base "message" class is present and toggle only state + "hidden"
+    messageDiv.classList.remove("success", "error", "hidden");
+    messageDiv.classList.add("message", type);
     setTimeout(() => {
       messageDiv.classList.add("hidden");
     }, 5000);
