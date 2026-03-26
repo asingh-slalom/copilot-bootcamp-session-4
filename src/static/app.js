@@ -80,7 +80,16 @@ document.addEventListener("DOMContentLoaded", () => {
   async function handleRegister(event) {
     const button = event.target;
     const capability = button.getAttribute("data-capability");
-    const emailInput = button.previousElementSibling;
+    const container =
+      button.closest(".register-inline") || button.parentElement;
+    const emailInput = container
+      ? container.querySelector('input[type="email"], input[name="email"]')
+      : null;
+
+    if (!emailInput) {
+      console.error("No email input found for register button:", button);
+      return;
+    }
     const email = emailInput.value.trim();
 
     if (!email) {
